@@ -13,22 +13,34 @@ void mouseDragged()
 
 class SnowFlake
 {
-  //class member variable declarations
+  int x, y;
+  Boolean isMoving;
   SnowFlake()
   {
-    //class member variable initializations
+  	x = (int)(Math.random()*300);
+  	y = (int)(Math.random()*300);
+  	isMoving = true;
   }
   void show()
   {
-    //your code here
+  	fill(255);
+    ellipse(x, y, 2, 2);
   }
   void lookDown()
   {
-    //your code here
+    if(get(x,y+2) != color(0,0,0))
+    {
+    	isMoving = false;
+    }
+    else
+    {
+    	isMoving = true;
+    }
   }
   void erase()
   {
-    //your code here
+  	fill(0);
+  	ellipse(x, y, width, height);
   }
   void move()
   {
@@ -39,5 +51,3 @@ class SnowFlake
     //your code here
   }
 }
-
-
